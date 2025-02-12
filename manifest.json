@@ -1,0 +1,35 @@
+{
+    "name" : "Type A",
+    "description" : "Inject custom code.",
+    "version" : "0.0.0.1",
+    "manifest_version" : 3,
+    "action": {
+        "default_title": "Custom Popup" 
+    },
+    "permissions": [
+        "scripting", 
+        "storage",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts" : [
+        {
+            "matches" : [
+                "https://webbuilder.localsearch.com.au/home/site/*",
+                "https://webbuilder.localsearch.com.au/site/*",
+                "https://*.webbuilder.localsearch.com.au/*",
+                "http://*.webbuilder.localsearch.com.au/*",
+                "https://lsearch.lightning.force.com/lightning/*"
+            ],
+            "js" : [
+                "on_run.js"
+            ],
+            "css" : [
+                "app.css"
+            ],
+            "run_at" : "document_idle"
+        }
+    ]
+}
