@@ -71,3 +71,7 @@ html #dm div.dmRespRow a.dmButtonLink {
     top: 8px;
     right: 99%;
 }
+a[target="_blank"] {
+    border: dashed 2px red !important;
+    padding: 1PX;
+}
