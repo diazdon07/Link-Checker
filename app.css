@@ -11,15 +11,22 @@
     font-size: 15px;
     font-weight: 700;
     margin-top: 5px;
-    white-space: nowrap;
     z-index: 3;
     display: none;
 }
+.graphicWidget a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 .graphicWidget a .link-bar{
     width: fit-content;
-    position: relative;
-    top: -85%;
-}
+    position: absolute;
+    white-space: nowrap;
+}   
 .dmNewParagraph a .link-bar, 
 ul li .link-bar{
     width: auto;
@@ -27,12 +34,13 @@ ul li .link-bar{
 .dmButtonLink .link-bar{
     position: relative;
 }
-html *.dmButtonLink{
-    display: flex !important;
+html #dm div.dmRespRow a.dmButtonLink {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+    display: flex !important;
+    height: auto !important;
 }
 .messageBar{
     font-family: Arial, Helvetica, sans-serif !important;

@@ -1,9 +1,17 @@
 {
-    "name" : "Type A",
-    "description" : "Inject custom code.",
+    "name" : "Duda Link checked",
+    "description" : "This extension will check all the links on the page and will show the status of the links.",
     "version" : "0.0.0.1",
     "manifest_version" : 3,
     "action": {
+        "icon": "assets/images/checked.png",
+        "default_icon": {
+            "16": "assets/images/checked.png",
+            "32": "assets/images/checked.png",
+            "48": "assets/images/checked.png",
+            "64": "assets/images/checked.png",
+            "128": "assets/images/checked.png"
+        },
         "default_title": "Custom Popup" 
     },
     "permissions": [
@@ -24,7 +32,8 @@
                 "https://lsearch.lightning.force.com/lightning/*"
             ],
             "js" : [
-                "on_run.js"
+                "on_run.js",
+                "Download_scoping.js"
             ],
             "css" : [
                 "app.css"

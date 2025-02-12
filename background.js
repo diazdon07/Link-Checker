@@ -30,19 +30,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
                 console.warn("toggleState is not set in storage.");
             }
         });
-
-        // chrome.storage.sync.get("CheckToggle", (data) => {
-        //     if (chrome.runtime.lastError) {
-        //         console.error("Error retrieving toggle state from storage:", chrome.runtime.lastError.message);
-        //         return;
-        //     }
-
-        //     if (data && typeof data.toggleState !== 'undefined') {
-        //         console.log("Toggle State Data:", data.toggleState);
-        //     } else {
-        //         console.warn("CheckToggle is not set in storage.");
-        //     }
-        // });
         
     }
 });
