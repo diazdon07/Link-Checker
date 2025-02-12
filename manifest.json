@@ -1,5 +1,5 @@
 {
-    "name" : "Duda Link checked",
+    "name" : "Duda Link checker",
     "description" : "This extension will check all the links on the page and will show the status of the links.",
     "version" : "0.0.0.1",
     "manifest_version" : 3,
