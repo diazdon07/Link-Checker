@@ -57,24 +57,25 @@ async function linkChecker() {
                     if (link.href.includes('#')) {
                         const hashPart = url.split('#')[1];
                         results.push(`${link.href} - Anchor link detected`);
-                        
-                        styleBrokenLink(link, `⚓ ${baseUrl}#${hashPart}`, "orange");
 
-                        // const text = await response.text();
-                        // const parser = new DOMParser();
-                        // const doc = parser.parseFromString(text, 'text/html');
+                        const text = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(text, 'text/html');
 
-                        // // Fix here: Loop through anchor elements and check if the data-anchor matches
-                        // const anchors = Array.from(doc.querySelectorAll('[data-anchor]'));
-                        // const matchingAnchor = anchors.find(anchor => anchor.getAttribute('data-anchor') === hashPart);
+                        // Fix here: Loop through anchor elements and check if the data-anchor matches
+                        const anchors = Array.from(doc.querySelectorAll('[data-anchor]'));
+                        const matchingAnchor = anchors.find(anchor => anchor.getAttribute('data-anchor') === hashPart);
 
-                        // if (matchingAnchor) {
-                        //     results.push(`${link.href} - Good Link`);
-                        //     styleBrokenLink(link, `⚓ ${baseUrl}#${hashPart}`, "orange");
-                        // } else {
-                        //     results.push(`${link.href} - Broken (Status: ${response.status})`);
-                        //     styleBrokenLink(link, "⚓ Broken Anchor Link", "red");
-                        // }
+                        const anchorid = Array.from(doc.querySelectorAll('[id]'));
+                        const matchingid = anchorid.find(anchorid => anchorid.id === hashPart);
+
+                        if (matchingAnchor || matchingid) {
+                            results.push(`${link.href} - Good Link`);
+                            styleBrokenLink(link, `⚓ ${baseUrl}#${hashPart}`, "orange");
+                        } else {
+                            results.push(`${link.href} - Broken (Status: ${response.status})`);
+                            styleBrokenLink(link, "⚓ Broken Anchor Link", "red");
+                        }
                     } else {
                         results.push(`${link.href} - Good Link`);
                         if (baseUrl === "home") {
