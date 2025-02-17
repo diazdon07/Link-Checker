@@ -112,7 +112,26 @@ function handlerFirst(){
 }
 
 function toggleDisplay(show) {
+    const targetBlank = document.querySelectorAll('a[target="_blank"]'); //targeting a tag creating new tab
+    const dmButtonLink = document.querySelectorAll('.dmButtonLink'); 
     const linkElements = document.getElementsByClassName("link-bar");
+
+    targetBlank.forEach(target => {
+        if (show) {
+            target.style.border = "2px dashed red";  // Apply border if 'show' is true
+        } else {
+            target.style.border = "";  // Remove the border if 'show' is false
+        }
+    });
+
+    dmButtonLink.forEach(dmButton => {
+        if (show) {
+            dmButton.classList.add('custom-adjustment');
+        } else {
+            dmButton.classList.remove('custom-adjustment');
+        }
+    });
+
     for (let element of linkElements) {
         element.style.display = show ? "block" : "none";
     }
