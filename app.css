@@ -34,7 +34,7 @@ ul li .link-bar{
 .dmButtonLink .link-bar{
     position: relative;
 }
-html #dm div.dmRespRow a.dmButtonLink {
+html #dm div.dmRespRow a.custom-adjustment {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
@@ -70,7 +70,4 @@ html #dm div.dmRespRow a.dmButtonLink {
     position: absolute;
     top: 8px;
     right: 99%;
-}
-a[target="_blank"] {
-    border: dashed 2px red !important;
 }
