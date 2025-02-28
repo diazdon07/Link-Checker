@@ -5,7 +5,7 @@
 if (site.includes("lsearch.lightning.force.com")) {
     switch (sitePath) {
         case "lightning": // salesforce website
-            hotKeys_Scoping_Information_Download();
+            // hotKeys_Scoping_Information_Download();
             break;
     }
 }
