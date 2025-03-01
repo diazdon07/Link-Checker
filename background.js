@@ -33,3 +33,21 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         
     }
 });
+
+const commandFunctions = {
+    'show_link_checker': messageshow
+};
+
+chrome.commands.onCommand.addListener(function (command) {
+    if (commandFunctions[command]) {
+        commandFunctions[command]();
+    } else {
+        console.log(`Command ${command} not found`);
+    }
+});
+
+function messageshow() {
+     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "show" });
+    });
+}
