@@ -115,6 +115,20 @@ function toggleDisplay(show) {
     const targetBlank = document.querySelectorAll('a[target="_blank"]'); //targeting a tag creating new tab
     const dmButtonLink = document.querySelectorAll('.dmButtonLink'); 
     const linkElements = document.getElementsByClassName("link-bar");
+    const graphicWidgetLinks = document.querySelectorAll('.graphicWidget a');
+
+    graphicWidgetLinks.forEach(link => {
+        if (show) {
+            link.style.display = 'flex';
+            link.style.flexDirection = 'row';
+            link.style.flexWrap = 'wrap';
+            link.style.alignContent = 'center';
+            link.style.justifyContent = 'center';
+            link.style.alignItems = 'center';
+        } else {
+            link.style.display = '';
+        }
+    });
 
     targetBlank.forEach(target => {
         if (show) {
