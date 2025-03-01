@@ -35,7 +35,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 });
 
 const commandFunctions = {
-    'show_link_checker': messageshow
+    'show_link_checker': messageshow,
+    'scoping_information': scoping_display,
 };
 
 chrome.commands.onCommand.addListener(function (command) {
@@ -49,5 +50,11 @@ chrome.commands.onCommand.addListener(function (command) {
 function messageshow() {
      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { action: "show" });
+    });
+}
+
+function scoping_display() {    
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "scoping" });
     });
 }
