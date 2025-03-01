@@ -22,6 +22,15 @@
     "background": {
         "service_worker": "background.js"
     },
+    "commands": {
+        "show_link_checker": {
+            "suggested_key": {
+                "default": "Alt+Shift+Q",
+                "mac": "MacCtrl+Shift+L"
+            },
+            "description": "Show Links"
+        }
+    },
     "content_scripts" : [
         {
             "matches" : [
@@ -32,8 +41,7 @@
                 "https://lsearch.lightning.force.com/lightning/*"
             ],
             "js" : [
-                "on_run.js",
-                "Download_scoping.js"
+                "on_run.js"
             ],
             "css" : [
                 "app.css"
