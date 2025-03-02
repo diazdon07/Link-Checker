@@ -12,7 +12,7 @@
             "64": "assets/images/checked.png",
             "128": "assets/images/checked.png"
         },
-        "default_title": "Custom Popup" 
+        "default_title": "Duda Link Checker" 
     },
     "permissions": [
         "scripting", 
