@@ -102,8 +102,8 @@ function styleBrokenLink(link, content, color) {
 }
 
 function handlerFirst(){
-    chrome.storage.sync.get("toggleState", (data) => {
-        toggleDisplay(data.toggleState);
+    chrome.storage.sync.get("keyState", (data) => {
+        toggleDisplay(data.keyState === "show");
     });
     
     chrome.runtime.onMessage.addListener((message) => {
