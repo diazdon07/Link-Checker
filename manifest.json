@@ -29,13 +29,6 @@
                 "mac": "MacCtrl+Shift+L"
             },
             "description": "Show Links"
-        },
-        "scoping_information" : {
-            "suggested_key": {
-                "default": "Alt+Shift+Q",
-                "mac": "MacCtrl+Shift+L"
-            },
-            "description": "For Scoping information (In Progress)"
         }
     },
     "content_scripts" : [
