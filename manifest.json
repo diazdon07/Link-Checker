@@ -1,7 +1,7 @@
 {
     "name" : "Duda Link checker",
     "description" : "This extension will check all the links on the page and will show the status of the links.",
-    "version" : "0.0.0.1",
+    "version" : "0.0.0.3",
     "manifest_version" : 3,
     "action": {
         "icon": "assets/images/checked.png",
@@ -12,12 +12,14 @@
             "64": "assets/images/checked.png",
             "128": "assets/images/checked.png"
         },
-        "default_title": "Duda Link Checker" 
+        "default_title": "Duda Link checker" 
     },
     "permissions": [
         "scripting", 
         "storage",
-        "tabs"
+        "tabs",
+        "activeTab",
+        "commands"
     ],
     "background": {
         "service_worker": "background.js"
@@ -29,6 +31,13 @@
                 "mac": "MacCtrl+Shift+L"
             },
             "description": "Show Links"
+        },
+        "scoping_information" : {
+            "suggested_key": {
+                "default": "Alt+Shift+Q",
+                "mac": "MacCtrl+Shift+L"
+            },
+            "description": "For Scoping information (In Progress)"
         }
     },
     "content_scripts" : [
