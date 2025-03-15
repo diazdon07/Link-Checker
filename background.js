@@ -7,7 +7,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             popupFile = "";
         } else 
         if (/^https:\/\/webbuilder\.localsearch\.com\.au\/site\//.test(tab.url)) {
-            popupFile = "preview.html";
+            popupFile = "/popup/preview.html";
         } else 
         if (/^https:\/\/.*\.webbuilder\.localsearch\.com\.au\//.test(tab.url)) {
             popupFile = "";
@@ -30,8 +30,35 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
                 console.warn("keyState is not set in storage.");
             }
         });
-        
+
+        // chrome.tab.query({ active: true, currentWindow: true }, (tabs) => {
+        //     if(tabs.length === 0 || tabs[0].id) {
+        //         console.error("Error retrieving active tab:", tabs);
+        //         return;
+        //     }
+        // });
     }
+});
+
+chrome.storage.onChanged.addListener((changes, areaName) => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs.length === 0 || tabs[0].id) {
+            console.error("Error retrieving active tab:", tabs);
+            return;
+        }
+
+        for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
+            console.log(`Storage key "${key}" in area "${areaName}" changed from "${oldValue}" to "${newValue}"`);
+            chrome.storage.sync.get(["h1color", "h2color", "h3color", "h4color", "h5color", "h6color"], (data) => {
+                h1color = data.h1color;
+                h2color = data.h2color;
+                h3color = data.h3color;
+                h4color = data.h4color;
+                h5color = data.h5color;
+                h6color = data.h6color;
+            });
+        }
+    });
 });
 
 // hotkeys function

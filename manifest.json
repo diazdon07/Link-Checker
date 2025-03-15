@@ -1,7 +1,7 @@
 {
     "name" : "Duda Link checker",
     "description" : "This extension will check all the links on the page and will show the status of the links.",
-    "version" : "0.0.0.3",
+    "version" : "0.0.0.1",
     "manifest_version" : 3,
     "action": {
         "icon": "assets/images/checked.png",
@@ -12,14 +12,16 @@
             "64": "assets/images/checked.png",
             "128": "assets/images/checked.png"
         },
-        "default_title": "Duda Link checker" 
+        "default_title": "Duda Link Checker" 
+    },
+    "options_ui": {
+        "page": "/option/option.html",
+        "open_in_tab": true
     },
     "permissions": [
         "scripting", 
         "storage",
-        "tabs",
-        "activeTab",
-        "commands"
+        "tabs"
     ],
     "background": {
         "service_worker": "background.js"
@@ -31,13 +33,6 @@
                 "mac": "MacCtrl+Shift+L"
             },
             "description": "Show Links"
-        },
-        "scoping_information" : {
-            "suggested_key": {
-                "default": "Alt+Shift+Q",
-                "mac": "MacCtrl+Shift+L"
-            },
-            "description": "For Scoping information (In Progress)"
         }
     },
     "content_scripts" : [
@@ -50,7 +45,7 @@
                 "https://lsearch.lightning.force.com/lightning/*"
             ],
             "js" : [
-                "on_run.js"
+                "/scripts/on_run.js"
             ],
             "css" : [
                 "app.css"
