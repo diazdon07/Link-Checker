@@ -15,14 +15,12 @@
     z-index: 3;
     display: none;
 }
-/* .graphicWidget a {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-} */
+
+.image-container a .link-bar {
+    position: absolute !important;
+    top: 50% !important;
+}
+
 .graphicWidget a .link-bar{
     width: fit-content;
     position: absolute;
