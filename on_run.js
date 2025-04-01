@@ -116,7 +116,21 @@ function toggleDisplay(show) {
     const dmButtonLink = document.querySelectorAll('.dmButtonLink'); 
     const linkElements = document.getElementsByClassName("link-bar");
     const graphicWidgetLinks = document.querySelectorAll('.graphicWidget a');
+    const imageWidgetLinks = document.querySelectorAll('.image-container a');
 
+    imageWidgetLinks.forEach(link => {
+        if (show) {
+            link.style.display = 'flex';
+            link.style.flexDirection = 'row';
+            link.style.flexWrap = 'wrap';
+            link.style.alignContent = 'center';
+            link.style.justifyContent = 'center';
+            link.style.alignItems = 'center';
+        } else {
+            link.style.display = '';
+        }
+    });
+    
     graphicWidgetLinks.forEach(link => {
         if (show) {
             link.style.display = 'flex';
